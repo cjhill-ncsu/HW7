@@ -21,7 +21,7 @@ ui <- fluidPage(
       
       h2("Choose a subset of data:"),
       
-      # Radio buttons for subsetting
+      # Radio buttons for subsetting. Unable to use the HHLvals
       radioButtons("hhl_corr", "Household Language:",
                    choices = list("All" = "all", "English" = "english",
                                   "Spanish" = "spanish", "Other" = "other")),
@@ -53,7 +53,9 @@ ui <- fluidPage(
         h2("Guess the correlation!"),
         
         # Add input for guessing the correlation
-        column(6, numericInput("corr_guess", label = "Your Guess:", value = 0, min = -1, max = 1)),
+        column(6, numericInput("corr_guess", 
+                               label = "Your Guess:", 
+                               value = 0, min = -1, max = 1)),
         
         # Add action button for submitting the guess
         column(6, actionButton("corr_submit", "Check Your Guess!"))
